@@ -1,0 +1,43 @@
+{
+    "name": "bigin/history",
+    "description": ":description",
+    "license": "license",
+    "authors": [
+        {
+            "name": "author name",
+            "email": "author email",
+            "homepage": "author homepage"
+        }
+    ],
+    "homepage": "https://github.com/bigin/history",
+    "keywords": ["Laravel", "History"],
+    "require": {
+        "illuminate/support": "~5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~7.0",
+        "mockery/mockery": "^1.1",
+        "orchestra/testbench": "~3.0",
+        "sempro/phpunit-pretty-print": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bigin\\History\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bigin\\History\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bigin\\History\\HistoryServiceProvider"
+            ],
+            "aliases": {
+                "History": "Bigin\\History\\Facades\\History"
+            }
+        }
+    }
+}
