@@ -73,6 +73,13 @@ class HistoryServiceProvider extends ServiceProvider
             __DIR__.'/../resources/lang' => resource_path('lang/vendor/bigin'),
         ], 'history.views');*/
 
+        // Publishing the migration files.
+        $migrations = realpath(__DIR__.'/../database/migrations');
+
+        $this->publishes([
+            $migrations => $this->app->databasePath().'/migrations',
+        ], 'bigin.history.migrations');
+
         // Registering package commands.
         // $this->commands([]);
     }
