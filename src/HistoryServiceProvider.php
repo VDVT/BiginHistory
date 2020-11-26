@@ -26,7 +26,7 @@ class HistoryServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/history.php', 'bigin.history');
+        $this->mergeConfigFrom(__DIR__ . '/../config/history.php', 'bigin.history');
 
         // Register the service the package provides.
         $this->app->singleton('history', function ($app) {
@@ -43,7 +43,7 @@ class HistoryServiceProvider extends ServiceProvider
     {
         return ['history'];
     }
-    
+
     /**
      * Console-specific booting.
      *
@@ -53,32 +53,14 @@ class HistoryServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/history.php' => config_path('bigin/history.php'),
+            __DIR__ . '/../config/history.php' => config_path('bigin/history.php'),
         ], 'bigin.history.config');
 
-        // Publishing the views.
-        /*$this->publishes([
-            __DIR__.'/../resources/views' => base_path('resources/views/vendor/bigin'),
-        ], 'history.views');*/
-
-        // Publishing assets.
-        /*$this->publishes([
-            __DIR__.'/../resources/assets' => public_path('vendor/bigin'),
-        ], 'history.views');*/
-
-        // Publishing the translation files.
-        /*$this->publishes([
-            __DIR__.'/../resources/lang' => resource_path('lang/vendor/bigin'),
-        ], 'history.views');*/
-
         // Publishing the migration files.
-        $migrations = realpath(__DIR__.'/../database/migrations');
+        $migrations = realpath(__DIR__ . '/../database/migrations');
 
         $this->publishes([
-            $migrations => $this->app->databasePath().'/migrations',
+            $migrations => $this->app->databasePath() . '/migrations',
         ], 'bigin.history.migrations');
-
-        // Registering package commands.
-        // $this->commands([]);
     }
 }

@@ -9,7 +9,7 @@
             "homepage": "Bigin Homepage"
         }
     ],
-    "homepage": "https://github.com/bigin/history",
+    "homepage": "https://github.com/VDVT/BiginHistory",
     "keywords": ["Laravel", "History"],
     "require": {
         "illuminate/support": "~5"
