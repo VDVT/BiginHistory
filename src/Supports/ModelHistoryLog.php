@@ -1,4 +1,5 @@
 <?php
+
 namespace Bigin\History\Supports;
 
 use Illuminate\Database\Eloquent\Model;

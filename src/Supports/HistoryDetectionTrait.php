@@ -1,4 +1,5 @@
 <?php
+
 namespace Bigin\History\Supports;
 
 use Bigin\History\Entities\AuditHistory;
@@ -53,6 +54,15 @@ trait HistoryDetectionTrait
         'updated_by',
     ];
 
+    /**
+     * audithistory
+     *
+     * @return void
+     */
+    public function audithistory()
+    {
+        return $this->morphMany(AuditHistory::class, 'target');
+    }
     /**
      * [bootHistoryDetection description]
      * Register auto detection history
@@ -167,7 +177,6 @@ trait HistoryDetectionTrait
                         $this->createOrUpdateLogHistory($attribute, $origin, $current);
                     }
                 }
-
             }
         }
     }
@@ -180,7 +189,8 @@ trait HistoryDetectionTrait
     public function ignoreAttributes(array $fieldsChanged): array
     {
         if (!empty($this->historyOnlySpecialColumns) && is_array($this->historyOnlySpecialColumns)) {
-            return array_intersect_key($fieldsChanged, /* main array*/
+            return array_intersect_key(
+                $fieldsChanged, /* main array*/
                 array_flip( /* to be extracted */
                     $this->historyOnlySpecialColumns
                 )

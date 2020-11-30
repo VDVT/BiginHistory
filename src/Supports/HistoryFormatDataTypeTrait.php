@@ -1,4 +1,5 @@
 <?php
+
 namespace Bigin\History\Supports;
 
 use Carbon\Carbon;
@@ -41,8 +42,7 @@ trait HistoryFormatDataTypeTrait
      * [$numericAttributes ]
      * @var Array
      */
-    protected $ignoreFormatAttributes = [
-    ];
+    protected $ignoreFormatAttributes = [];
 
     /**
      * [$numericAttributes ]
@@ -184,7 +184,6 @@ trait HistoryFormatDataTypeTrait
                 } else {
                     $value = $configAttribute[1] ?? $value;
                 }
-
             }
             return $value;
         }
@@ -381,5 +380,4 @@ trait HistoryFormatDataTypeTrait
 
         return [$origin, $current, $columnType];
     }
-
 }

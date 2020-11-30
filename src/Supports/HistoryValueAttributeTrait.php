@@ -1,4 +1,5 @@
 <?php
+
 namespace Bigin\History\Supports;
 
 trait HistoryValueAttributeTrait
@@ -13,8 +14,8 @@ trait HistoryValueAttributeTrait
         $origin = $this->getOriginal($attr);
 
         return ($this->hasGetMutator($attr))
-        ? $this->mutateAttribute($attr, $origin)
-        : $origin;
+            ? $this->mutateAttribute($attr, $origin)
+            : $origin;
     }
 
     /**
@@ -26,8 +27,8 @@ trait HistoryValueAttributeTrait
     protected function getNewValueMutator($attr, $newValue)
     {
         return ($this->hasGetMutator($attr))
-        ? $this->mutateAttribute($attr, $newValue)
-        : $newValue;
+            ? $this->mutateAttribute($attr, $newValue)
+            : $newValue;
     }
 
     /**
@@ -60,7 +61,7 @@ trait HistoryValueAttributeTrait
         $logTargetAttributes = property_exists($this, 'logTargetAttributes') ? $this->logTargetAttributes : [];
 
         return [
-            'target_type' => $logTargetAttributes['target'] ?? null,
+            'target_type' => $this->getMorphClass(),
             'target_id' => $this->getAttribute($logTargetAttributes['primary'] ?? 'id'),
         ];
     }

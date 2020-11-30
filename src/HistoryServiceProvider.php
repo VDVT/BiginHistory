@@ -59,6 +59,12 @@ class HistoryServiceProvider extends ServiceProvider
         // Publishing the migration files.
         $migrations = realpath(__DIR__ . '/../database/migrations');
 
+        $view = realpath(__DIR__ . '/../resources/views');
+
+        $this->publishes([
+            $view => resource_path() . '/views/history',
+        ], 'bigin.history.views');
+
         $this->publishes([
             $migrations => $this->app->databasePath() . '/migrations',
         ], 'bigin.history.migrations');
